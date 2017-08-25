@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Todos</h1>
+
+<%= render 'form' %>
+
+<ul>
+  <% @todos.each do |todo| %>
+    <li id="<%= todo.id %>">
+      <%= todo.description %><br>
+      <strong>Deadline: </strong><%= todo.deadline %><br>
+
+      <!-- Add `remote: true` to the line below -->
+      <%= link_to "done", todo_path(todo), method: 'delete', remote: true %>
+    </li>
+  <% end %>
+</ul>
